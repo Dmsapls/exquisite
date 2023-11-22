@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url('B.jpg');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: #000000;
+  font-family: "Century Gothic";
+  font-size: 25px;
+}
+.button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #04aa5a; /* Green */
+  color: white;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  font-weight: bold;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  font-weight: bold;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+</style>
+<body>
+
+<div class="bgimg">
+  <div class="topleft">
+    <p>Exquisite travels, Morocco</p>
+  </div>
+  <div class="middle">
+    <h1>lost?</h1>
+    <h1>go back to the home page</h1>
+<button type="button" class="button" onclick="window.location.href='index.html';">Home</button>
+  </div>
+  <div class="bottomleft">
+    <p>contact@exquisitetravelsmorocco.com</p>
+  </div>
+</div>
+
+
+
+</body>
+</html>
