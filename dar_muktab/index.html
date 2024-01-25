@@ -46,24 +46,23 @@
     height: 40px;
   }
   .dropdown {
+    display: inline-block;
     position: relative;
-    display: block;
-    margin: 0 auto;
   }
   .dropdown-content {
     display: none;
-    position: absolute; /* Changed to absolute */
+    position: absolute;
     background-color: #f9f9f9;
-    width: 150px; /* Adjusted width */
+    width: 150px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
     opacity: 0;
     transition: opacity 0.3s ease;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 10px; /* Added margin to separate from the button */
+    margin-top: 10px;
   }
-  .dropdown:hover .dropdown-content {
+  .dropdown.active .dropdown-content {
     display: block;
     opacity: 1;
   }
@@ -87,67 +86,68 @@
   }
   .square-button img {
     width: 320px; /* Adjust size to be slightly larger than buttons */
+    display: block;
+    margin: 0 auto;
   }
+  footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1px 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center; /* Center the text horizontally */
+}
 </style>
 </head>
 <body>
 
-  <div class="container">
-    <a href="WIFICONTACT DAR MUKTAB.pdf" class="button">
-      WiFi
-      <img src="wifi_icon.png" alt="WiFi Icon">
+<div class="container">
+  <a href="WIFICONTACT DAR MUKTAB.pdf" class="button">
+    WiFi
+    <img src="wifi_icon.png" alt="WiFi Icon">
+  </a>
+  <div class="dropdown" id="menuDropdown">
+    <a href="#" class="button" onclick="toggleDropdown()">
+      Menus
+      <img src="menus_icon.png" alt="Menus Icon">
     </a>
-    <a href="OUR SERVICES LIST.pdf" class="button">
-      Services List
-      <img src="services_icon.png" alt="Services Icon">
-    </a>
-    <div class="dropdown">
-      <a href="71935297-EBBD-4D8E-AFF3-5C419C813E48.pdf" class="button">
-        Recommendations
-        <img src="recommendations_icon.png" alt="Recommendations Icon">
-      </a>
-      <div class="dropdown-content">
-        <!-- Removed text links for Restaurants and Shopping -->
-      </div>
+    <div class="dropdown-content" id="dropdown2">
+      <a href="BREAKFAST DAR MUKTAB.pdf">Breakfast</a>
+      <a href="MENU 1 DAR MUKTAB.pdf">Menu 1</a>
+      <a href="SPECIAL MENU 2  DAR MUKTAB.pdf">Menu 2 (SPECIAL)</a>
+      <a href="MENU 3 “CUS CUS” & “SEFFA”.pdf">Menu 3 (CUS CUS & SEFFA)</a>
     </div>
-    <div class="dropdown" onmouseleave="hideDropdown()">
-      <a href="#" class="button" onmouseover="showDropdown()">
-        Menus
-        <img src="menus_icon.png" alt="Menus Icon">
-      </a>
-      <div class="dropdown-content" id="dropdown2">
-        <a href="BREAKFAST DAR MUKTAB.pdf">Breakfast</a>
-        <a href="MENU 1 DAR MUKTAB.pdf">Menu 1</a>
-        <a href="SPECIAL MENU 2  DAR MUKTAB.pdf">Menu 2 (SPECIAL)</a>
-        <a href="MENU 3 “CUS CUS” & “SEFFA”.pdf">Menu 3 (CUS CUS & SEFFA)</a>
-      </div>
-      <div class="square-button">
-        <a href="https://darmuktab.com/">
-          <img src="darmuktab.jpeg" alt="Square Button">
-        </a>
-      </div>
   </div>
+  <a href="OUR SERVICES LIST.pdf" class="button">
+    Services List
+    <img src="services_icon.png" alt="Services Icon">
+  </a>
+  <div class="dropdown">
+    <a href="71935297-EBBD-4D8E-AFF3-5C419C813E48.pdf" class="button">
+      Recommendations
+      <img src="recommendations_icon.png" alt="Recommendations Icon">
+    </a>
+  </div>
+  <div class="square-button">
+    <a href="https://darmuktab.com/">
+      <img src="darmuktab.jpeg" alt="Square Button">
+    </a>
+  </div>
+</div>
+
+<footer>
+      
+  <h4> 
+  &copy; 2024 Dar Muktab
+  <h6>
+  ALL RIGHTS RESERVED TO DMSAPL MEDIA
+</footer>
 
 <script>
-  var hideTimeout;
-
-  function showDropdown() {
-    var dropdown = document.getElementById("dropdown2");
-    clearTimeout(hideTimeout); // Clear the hide timeout
-    dropdown.style.display = "block";
-    setTimeout(function() {
-      dropdown.style.opacity = "1";
-    }, 10); // Fade-in animation delay
-  }
-
-  function hideDropdown() {
-    hideTimeout = setTimeout(function() {
-      var dropdown = document.getElementById("dropdown2");
-      dropdown.style.opacity = "0";
-      setTimeout(function() {
-        dropdown.style.display = "none";
-      }, 300); // Fade-out animation duration
-    }, 3000); // 3000 milliseconds (3 seconds) delay
+  function toggleDropdown() {
+    var dropdown = document.getElementById("menuDropdown");
+    dropdown.classList.toggle("active");
   }
 </script>
 
