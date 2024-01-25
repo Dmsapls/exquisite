@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fancy Website</title>
+<style>
+  body {
+    font-family: 'Cinzel', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 50px;
+  }
+  .button {
+    display: block;
+    width: 300px;
+    height: 70px;
+    line-height: 70px;
+    background-color: #ffffff;
+    color: #6b4c38;
+    border: 2px solid #6b4c38;
+    border-radius: 5px;
+    margin: 20px auto;
+    position: relative;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 20px;
+  }
+  .button:hover {
+    background-color: #6b4c38;
+    color: #ffffff;
+    transform: scale(1.05); /* Increase size on hover */
+  }
+  .button img {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  .dropdown {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute; /* Changed to absolute */
+    background-color: #f9f9f9;
+    width: 150px; /* Adjusted width */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px; /* Added margin to separate from the button */
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+  }
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="WIFICONTACT DAR MUKTAB.pdf" class="button">
+      WiFi
+      <img src="wifi_icon.png" alt="WiFi Icon">
+    </a>
+    <a href="OUR SERVICES LIST.pdf" class="button">
+      Services List
+      <img src="services_icon.png" alt="Services Icon">
+    </a>
+    <div class="dropdown">
+      <a href="71935297-EBBD-4D8E-AFF3-5C419C813E48.pdf" class="button">
+        Recommendations
+        <img src="recommendations_icon.png" alt="Recommendations Icon">
+      </a>
+      <div class="dropdown-content">
+        <!-- Removed text links for Restaurants and Shopping -->
+      </div>
+    </div>
+    <div class="dropdown" onmouseleave="hideDropdown()">
+      <a href="#" class="button" onmouseover="showDropdown()">
+        Menus
+        <img src="menus_icon.png" alt="Menus Icon">
+      </a>
+      <div class="dropdown-content" id="dropdown2">
+        <a href="BREAKFAST DAR MUKTAB.pdf">Breakfast</a>
+        <a href="MENU 1 DAR MUKTAB.pdf">Menu 1</a>
+        <a href="SPECIAL MENU 2  DAR MUKTAB.pdf">Menu 2 (SPECIAL)</a>
+        <a href="MENU 3 “CUS CUS” & “SEFFA”.pdf">Menu 3 (CUS CUS & SEFFA)</a>
+      </div>
+    </div>
+  </div>
+
+<script>
+  var hideTimeout;
+
+  function showDropdown() {
+    var dropdown = document.getElementById("dropdown2");
+    clearTimeout(hideTimeout); // Clear the hide timeout
+    dropdown.style.display = "block";
+    setTimeout(function() {
+      dropdown.style.opacity = "1";
+    }, 10); // Fade-in animation delay
+  }
+
+  function hideDropdown() {
+    hideTimeout = setTimeout(function() {
+      var dropdown = document.getElementById("dropdown2");
+      dropdown.style.opacity = "0";
+      setTimeout(function() {
+        dropdown.style.display = "none";
+      }, 300); // Fade-out animation duration
+    }, 3000); // 3000 milliseconds (3 seconds) delay
+  }
+</script>
+
+</body>
+</html>
